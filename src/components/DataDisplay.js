@@ -46,7 +46,7 @@ const DataDisplay = () => {
 
   return (
     <div>
-      <h2>Created by cmplx.eth</h2>
+      <h1>Farcaster Casts</h1>
       <div className="button-group">
         <button
           className={algorithm === "OpenRank" ? "active" : ""}

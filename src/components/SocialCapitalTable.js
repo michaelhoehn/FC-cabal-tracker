@@ -31,7 +31,7 @@ const SocialCapitalTable = ({ casts }) => {
           {casts.map((cast, index) => (
             <React.Fragment key={index}>
               <tr onClick={() => toggleRow(index)} className="collapsible-row">
-                <td>
+                <td data-label="Profile Image">
                   {cast.cast?.castedBy?.profileImage ? (
                     <img
                       src={cast.cast.castedBy.profileImage}
@@ -42,16 +42,22 @@ const SocialCapitalTable = ({ casts }) => {
                     "N/A"
                   )}
                 </td>
-                <td>{cast.cast?.castedBy?.profileName || "N/A"}</td>
-                <td>{cast.cast?.numberOfRecasts ?? "N/A"}</td>
-                <td>{cast.cast?.numberOfLikes ?? "N/A"}</td>
-                <td>
+                <td data-label="Profile Name">
+                  {cast.cast?.castedBy?.profileName || "N/A"}
+                </td>
+                <td data-label="Number of Recasts">
+                  {cast.cast?.numberOfRecasts ?? "N/A"}
+                </td>
+                <td data-label="Number of Likes">
+                  {cast.cast?.numberOfLikes ?? "N/A"}
+                </td>
+                <td data-label="Social Capital Value">
                   {cast.socialCapitalValueFormatted
                     ? Number(cast.socialCapitalValueFormatted).toFixed(2)
                     : "N/A"}
                 </td>
-                <td>{cast.timeFrom}</td>
-                <td>
+                <td data-label="Timestamp">{cast.timeFrom}</td>
+                <td data-label="URL">
                   <a
                     href={cast.cast?.url}
                     target="_blank"

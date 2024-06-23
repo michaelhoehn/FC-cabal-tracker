@@ -30,7 +30,7 @@ const OpenRankTable = ({ casts }) => {
           {casts.map((cast, index) => (
             <React.Fragment key={index}>
               <tr onClick={() => toggleRow(index)} className="collapsible-row">
-                <td>
+                <td data-label="Profile Image">
                   {cast.castedBy?.profileImage ? (
                     <img
                       src={cast.castedBy.profileImage}
@@ -41,11 +41,17 @@ const OpenRankTable = ({ casts }) => {
                     "N/A"
                   )}
                 </td>
-                <td>{cast.castedBy?.profileName || "N/A"}</td>
-                <td>{cast.numberOfRecasts ?? "N/A"}</td>
-                <td>{cast.numberOfLikes ?? "N/A"}</td>
-                <td>{cast.castedAtTimestamp}</td>
-                <td>
+                <td data-label="Profile Name">
+                  {cast.castedBy?.profileName || "N/A"}
+                </td>
+                <td data-label="Number of Recasts">
+                  {cast.numberOfRecasts ?? "N/A"}
+                </td>
+                <td data-label="Number of Likes">
+                  {cast.numberOfLikes ?? "N/A"}
+                </td>
+                <td data-label="Timestamp">{cast.castedAtTimestamp}</td>
+                <td data-label="URL">
                   <a href={cast.url} target="_blank" rel="noopener noreferrer">
                     Link
                   </a>
