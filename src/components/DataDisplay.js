@@ -6,6 +6,7 @@ import OpenRankTable from "./OpenRankTable";
 import SocialCapitalTable from "./SocialCapitalTable";
 import "./OpenRankTable.css"; // Import the OpenRankTable CSS file
 import "./SocialCapitalTable.css"; // Import the SocialCapitalTable CSS file
+import "./DataDisplay.css"; // Import the DataDisplay CSS file
 
 const DataDisplay = () => {
   const [casts, setCasts] = useState([]);
@@ -45,7 +46,7 @@ const DataDisplay = () => {
 
   return (
     <div>
-      <h1>Crated by cmplx.eth</h1>
+      <h2>Created by cmplx.eth</h2>
       <div className="button-group">
         <button
           className={algorithm === "OpenRank" ? "active" : ""}

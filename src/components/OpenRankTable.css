@@ -1,8 +1,13 @@
+.open-rank-table-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
 .open-rank-table {
-  width: 100%;
+  width: 66%;
   border-collapse: collapse;
   background-color: #1e1e1e;
-  margin: 20px 0;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
@@ -13,6 +18,7 @@
   padding: 12px 15px;
   border: 1px solid #2a2a2a;
   text-align: left;
+  word-wrap: break-word;
 }
 
 .open-rank-table th {
@@ -64,6 +70,10 @@ a:hover {
 }
 
 @media (max-width: 768px) {
+  .open-rank-table {
+    width: 100%;
+  }
+
   .open-rank-table th,
   .open-rank-table td {
     padding: 8px;

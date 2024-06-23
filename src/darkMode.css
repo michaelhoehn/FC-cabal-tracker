@@ -15,6 +15,12 @@ h1 {
   margin-top: 20px;
 }
 
+h2 {
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+}
+
 .button-group {
   margin: 20px 0;
 }
