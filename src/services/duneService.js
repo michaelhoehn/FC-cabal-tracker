@@ -3,7 +3,7 @@ export let duneFids = [];
 
 export const fetchDuneData = async () => {
   const DUNE_API_KEY = process.env.REACT_APP_DUNE_API_KEY;
-  console.log("Dune API Key:", DUNE_API_KEY); // Log to check if the key is being read correctly
+  // console.log("Dune API Key:", DUNE_API_KEY); // Log to check if the key is being read correctly
   const response = await fetch(
     "https://api.dune.com/api/v1/query/3854565/results",
     {
