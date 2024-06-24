@@ -6,6 +6,7 @@
 
 .open-rank-table {
   width: 66%;
+  max-width: 1200px; /* Set max width for the table */
   border-collapse: collapse;
   background-color: #1e1e1e;
   border-radius: 8px;
@@ -19,6 +20,9 @@
   border: 1px solid #2a2a2a;
   text-align: left;
   word-wrap: break-word;
+  white-space: nowrap; /* Prevent columns from expanding */
+  overflow: hidden; /* Hide overflow content */
+  text-overflow: ellipsis; /* Add ellipsis for overflow content */
 }
 
 .open-rank-table th {
@@ -45,10 +49,13 @@
   padding: 10px;
   color: #e0e0e0;
   font-size: 0.9em;
+  white-space: normal; /* Allow normal wrapping for expandable content */
+  max-height: 100px; /* Set a fixed height for the expandable content */
+  overflow-y: auto; /* Add a scrollbar if the content exceeds the max-height */
 }
 
 .open-rank-table .arrow-cell {
-  text-align: center;
+  text-align: left;
   cursor: pointer;
   font-size: 1.2em;
   color: #bb86fc;
@@ -70,7 +77,7 @@ a:hover {
 }
 
 /* Mobile Styles */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .open-rank-table {
     width: 100%;
     border: 0;
@@ -86,35 +93,56 @@ a:hover {
   }
 
   .open-rank-table td {
-    display: block;
-    text-align: right;
-    padding-left: 50%;
+    display: flex;
+    justify-content: space-between; /* Ensure content is visible */
+    text-align: left;
+    padding-left: 15px;
     position: relative;
     border: 1px solid #2a2a2a;
   }
 
   .open-rank-table td::before {
     content: attr(data-label);
-    position: absolute;
-    left: 0;
-    width: 50%;
-    padding-left: 15px;
     font-weight: bold;
-    text-align: left;
     background-color: #292929;
     color: #bb86fc;
+    flex: 1;
+  }
+
+  .open-rank-table td span {
+    flex: 1;
+    text-align: right; /* Ensure text is visible */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .open-rank-table .expandable-row td {
-    padding-left: 10px;
+    padding-left: 15px;
   }
 
   .open-rank-table .profile-image {
-    width: 30px;
-    height: 30px;
+    width: 60px; /* Increase profile image size */
+    height: 60px;
   }
 
   .open-rank-table .expandable-content {
     font-size: 0.8em;
+    max-height: 100px; /* Set a fixed height for the expandable content */
+    overflow-y: auto; /* Add a scrollbar if the content exceeds the max-height */
+  }
+
+  .open-rank-table .arrow-cell {
+    text-align: left;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+  }
+
+  .arrow-cell::after {
+    content: " Cast Text";
+    font-weight: bold;
+    color: #bb86fc;
+    margin-left: 5px;
   }
 }

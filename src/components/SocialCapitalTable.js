@@ -56,7 +56,7 @@ const SocialCapitalTable = ({ casts }) => {
                     ? Number(cast.socialCapitalValueFormatted).toFixed(2)
                     : "N/A"}
                 </td>
-                <td data-label="Timestamp">{cast.timeFrom}</td>
+                <td data-label="Timestamp">{cast.timeFrom || "N/A"}</td>
                 <td data-label="URL">
                   <a
                     href={cast.cast?.url}
@@ -88,8 +88,11 @@ const SocialCapitalTable = ({ casts }) => {
 SocialCapitalTable.propTypes = {
   casts: PropTypes.arrayOf(
     PropTypes.shape({
-      timeFrom: PropTypes.string.isRequired,
-      socialCapitalValueFormatted: PropTypes.string,
+      timeFrom: PropTypes.string,
+      socialCapitalValueFormatted: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+      ]),
       cast: PropTypes.shape({
         profileName: PropTypes.string.isRequired,
         profileImage: PropTypes.string,
@@ -97,7 +100,7 @@ SocialCapitalTable.propTypes = {
         numberOfRecasts: PropTypes.number,
         numberOfLikes: PropTypes.number,
         url: PropTypes.string.isRequired,
-      }).isRequired,
+      }),
     })
   ).isRequired,
 };

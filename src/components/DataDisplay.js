@@ -20,11 +20,9 @@ const DataDisplay = () => {
       setError(null);
       try {
         if (algorithm === "OpenRank") {
-          await fetchDuneData();
-          const airstackResult = await fetchAirstackData();
-          if (airstackResult.data) {
-            setCasts(airstackResult.data.FarcasterCasts.Cast);
-          }
+          const fids = await fetchDuneData();
+          const airstackResult = await fetchAirstackData(fids);
+          setCasts(airstackResult);
         } else if (algorithm === "Social Capital") {
           const socialCapitalResult = await fetchSocialCapitalData();
           if (socialCapitalResult.data) {
@@ -46,7 +44,7 @@ const DataDisplay = () => {
 
   return (
     <div>
-      <h1>Farcaster Casts</h1>
+      <h2>Created by cmplx.eth</h2>
       <div className="button-group">
         <button
           className={algorithm === "OpenRank" ? "active" : ""}
